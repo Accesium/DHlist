@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DHlist - 효율적인 일정 관리와 할 일 목록 관리를 위한 캘린더 애플리케이션">
+    <meta name="keywords" content="DHlist, 일정관리, 할일목록, 캘린더, todo list, calendar">
+    <meta name="author" content="DH">
+    <meta property="og:title" content="DHlist - 스마트한 일정 관리">
+    <meta property="og:description" content="간편하고 효율적인 일정 관리 툴">
+    <meta property="og:type" content="website">
+    <title>DHlist - 스마트한 일정 관리</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">DHlist</h1>
+            <div class="month-selector">
+                <button id="prevMonth" aria-label="이전 달">&lt;</button>
+                <h2 id="currentMonth">January 2025</h2>
+                <button id="nextMonth" aria-label="다음 달">&gt;</button>
+            </div>
+        </header>
+
+        <main class="calendar-container">
+            <div class="calendar">
+                <div class="weekdays" aria-label="요일">
+                    <div>일</div>
+                    <div>월</div>
+                    <div>화</div>
+                    <div>수</div>
+                    <div>목</div>
+                    <div>금</div>
+                    <div>토</div>
+                </div>
+                <div id="calendar-days" class="days" role="grid">
+                    <!-- Days will be inserted by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Todo Modal -->
+        <div id="todoModal" class="modal" role="dialog" aria-labelledby="modalDate">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalDate">2025년 1월 1일</h2>
+                    <button id="closeModal" aria-label="닫기">&times;</button>
+                </div>
+                <div class="todo-input-section">
+                    <form id="todoForm" class="input-container">
+                        <div class="input-group">
+                            <input type="text" 
+                                   id="todoInput" 
+                                   placeholder="할 일을 입력하세요"
+                                   aria-label="할 일 입력">
+                            <select id="prioritySelect" aria-label="우선순위 선택">
+                                <option value="first">1st</option>
+                                <option value="second" selected>2nd</option>
+                                <option value="third">3rd</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="addTodo">추가</button>
+                    </form>
+                </div>
+                <div class="todo-list" role="list" aria-label="할 일 목록">
+                    <!-- Todo items will be added here -->
+                </div>
+                <nav class="bottom-nav">
+                    <a href="#" class="nav-item active" data-filter="all">
+                        <span class="nav-text">전체</span>
+                    </a>
+                    <a href="#" class="nav-item" data-filter="active">
+                        <span class="nav-text">진행중</span>
+                    </a>
+                    <a href="#" class="nav-item" data-filter="completed">
+                        <span class="nav-text">완료</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.min.js" defer></script>
+</body>
+</html> 
